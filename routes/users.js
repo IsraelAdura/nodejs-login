@@ -71,7 +71,7 @@ User.getUserByUsername(username,function(err, user){
      User.comparePassword( password, user.password, function(err,isMatch){
         if (err){throw err}
 
-        if(ismatch){ return done(null, user)}
+        if(isMatch){ return done(null, user)}
         
         else{
           return done(null, false, { message: 'Incorrect password.' })

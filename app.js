@@ -7,7 +7,7 @@ var express = require('express'),
   //bcrypt = require('bcryptjs'),
   session = require('express-session'),
   expressValidator = require('express-validator'),
-  ejs = require('ejs'),
+  exphbs = require('express-handlebars'),
   passport = require('passport'),
   LocalStategy = require('passport-local').Strategy,
   mongo = require('mongodb'),
@@ -26,7 +26,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');
 
 //bodyparser
 app.use(bodyParser.json());
