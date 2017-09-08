@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+//var passport = require('./passport');
+
 /* GET homepage. */
 router.get('/', Authenticated, function(req, res, next) {
   res.render('index');

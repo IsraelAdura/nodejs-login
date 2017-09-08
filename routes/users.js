@@ -5,6 +5,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 var User = require('../models/users');
+var Passport=require('./passport');
+
 
 //signup
 router.get('/register', function (req, res) {
@@ -59,7 +61,7 @@ router.post('/register', function (req, res) {
   }
 })
 
-passport.use(new LocalStrategy(
+/*passport.use(new LocalStrategy(
   function(username, password, done) {
 User.getUserByUsername(username,function(err, user){
       if(err){throw err}
@@ -87,7 +89,8 @@ User.getUserByUsername(username,function(err, user){
     User.getUserById(id, function(err, user) {
       done(err, user);
     });
-  });
+  });*/
+  Passport.passport();
 
 router.post('/login',
 passport.authenticate('local',
